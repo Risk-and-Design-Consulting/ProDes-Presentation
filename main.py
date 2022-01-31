@@ -37,7 +37,7 @@ def graficar_data(data, font_size=20):
     )
     fig.update_layout(font_size=font_size)
     fig.update_layout(
-        yaxis_range=[0.99 * min(data["PesoTotalMin"]), 1.05 * max(data["PesoTotalMin"])]
+        yaxis_range=[0.99 * min(data["PesoTotalMin"]), 1.02 * max(data["PesoTotalMin"])]
     )
     fig.update_traces(textposition="outside")
     st.plotly_chart(fig, use_container_width=True)
