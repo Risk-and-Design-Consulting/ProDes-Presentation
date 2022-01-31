@@ -67,7 +67,7 @@ def graficar_data(data, font_size=20):
     )
     fig.update_layout(font_size=font_size)
     fig.update_layout(
-        yaxis_range=[0.99 * min(data["TenorTotalMin"]), 1.05 * max(data["TenorTotalMin"])]
+        yaxis_range=[0.99 * min(data["TenorTotalMin"]), 1.02 * max(data["TenorTotalMin"])]
     )
     fig.update_traces(textposition="outside")
     st.plotly_chart(fig, use_container_width=True)
@@ -97,7 +97,7 @@ def graficar_data(data, font_size=20):
     )
     fig.update_layout(font_size=font_size)
     fig.update_layout(
-        yaxis_range=[0.95 * min(data["NúmeroFiguras"]), 1.05 * max(data["NúmeroFiguras"])]
+        yaxis_range=[0.95 * min(data["NúmeroFiguras"]), 1.1 * max(data["NúmeroFiguras"])]
     )
     fig.update_traces(textposition="outside")
     st.plotly_chart(fig, use_container_width=True)
@@ -127,7 +127,7 @@ def graficar_data(data, font_size=20):
     )
     fig.update_layout(font_size=font_size)
     fig.update_layout(
-        yaxis_range=[0.995 * min(data["NúmeroBarras"]), 1.005 * max(data["NúmeroBarras"])]
+        yaxis_range=[0.995 * min(data["NúmeroBarras"]), 1.007 * max(data["NúmeroBarras"])]
     )
     fig.update_traces(textposition="outside")
     st.plotly_chart(fig, use_container_width=True)
