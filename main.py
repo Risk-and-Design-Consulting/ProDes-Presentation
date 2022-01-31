@@ -92,7 +92,7 @@ def graficar_data(data, font_size=20):
     )
     fig.update_layout(font_size=font_size)
     fig.update_layout(
-        yaxis_range=[0.98 * min(data["NúmeroFiguras"]), 1.01 * max(data["NúmeroFiguras"])]
+        yaxis_range=[0.95 * min(data["NúmeroFiguras"]), 1.01 * max(data["NúmeroFiguras"])]
     )
     st.plotly_chart(fig, use_container_width=True)
 
