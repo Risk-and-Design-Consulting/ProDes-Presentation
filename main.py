@@ -34,6 +34,7 @@ def graficar_data(data, font_size=20):
         barmode="group",
         height=500,
         text_auto = '.1f',
+        template = "plotly_dark",
     )
     fig.update_layout(font_size=font_size)
     fig.update_layout(
