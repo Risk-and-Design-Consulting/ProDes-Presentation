@@ -13,25 +13,6 @@ def graficar_data(data, font_size=20):
     min_index = data["NúmeroFiguras"].T.idxmin()
     min_index_name_figuras = data.iloc[min_index]["Análisis"]
 
-    st.title("Indicadores")
-    fig = px.bar(
-        data,
-        x="Análisis",
-        y=[
-            f"Peso Total ({min_index_name_peso})",
-            f"Número Figuras ({min_index_name_figuras})",
-            f"Número Barras ({min_index_name_barras})",
-        ],
-        labels={"value": "", "variable": "Indicador"},
-        barmode=view_mode,
-        height=700,
-    )
-    fig.update_xaxes(tickangle=270)
-    fig.update_layout(font_size=font_size)
-    fig.update_yaxes(title="", visible=True, showticklabels=False)
-    fig.update_traces(hoverinfo="skip", hovertemplate=None)
-    st.plotly_chart(fig, use_container_width=True)
-
     st.title("Peso total de refuerzo")
 
     min_index = data["PesoTotal"].T.idxmin()
@@ -111,7 +92,7 @@ def graficar_data(data, font_size=20):
     )
     fig.update_layout(font_size=font_size)
     fig.update_layout(
-        yaxis_range=[0.99 * min(data["NúmeroFiguras"]), 1.01 * max(data["NúmeroFiguras"])]
+        yaxis_range=[0.98 * min(data["NúmeroFiguras"]), 1.01 * max(data["NúmeroFiguras"])]
     )
     st.plotly_chart(fig, use_container_width=True)
 
@@ -139,8 +120,29 @@ def graficar_data(data, font_size=20):
     )
     fig.update_layout(font_size=font_size)
     fig.update_layout(
-        yaxis_range=[0.99 * min(data["NúmeroBarras"]), 1.01 * max(data["NúmeroBarras"])]
+        yaxis_range=[0.995 * min(data["NúmeroBarras"]), 1.005 * max(data["NúmeroBarras"])]
     )
+    st.plotly_chart(fig, use_container_width=True)
+    
+    
+    st.title("Indicadores")
+    
+    fig = px.bar(
+        data,
+        x="Análisis",
+        y=[
+            f"Peso Total ({min_index_name_peso})",
+            f"Número Figuras ({min_index_name_figuras})",
+            f"Número Barras ({min_index_name_barras})",
+        ],
+        labels={"value": "", "variable": "Indicador"},
+        barmode=view_mode,
+        height=700,
+    )
+    fig.update_xaxes(tickangle=270)
+    fig.update_layout(font_size=font_size)
+    fig.update_yaxes(title="", visible=True, showticklabels=False)
+    fig.update_traces(hoverinfo="skip", hovertemplate=None)
     st.plotly_chart(fig, use_container_width=True)
 
 
