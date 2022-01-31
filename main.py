@@ -13,7 +13,7 @@ def graficar_data(data, font_size=20):
     min_index = data["NúmeroFiguras"].T.idxmin()
     min_index_name_figuras = data.iloc[min_index]["Análisis"]
 
-    st.title("Indicadores y tendencias")
+    st.title("Indicadores")
     fig = px.bar(
         data,
         x="Análisis",
