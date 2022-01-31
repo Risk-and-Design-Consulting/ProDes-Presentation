@@ -47,13 +47,16 @@ def graficar_data(data, font_size=20):
         labels={
             "Longitud": "Múltiplo de Longitud (m)",
             "Calibres": "Calibres empleados",
-            "value": f"Aumento en el peso (tonf)",
+            "value": f"Peso total (tonf)",
         },
         color="Calibres",
         barmode="group",
         height=500,
     )
     fig.update_layout(font_size=font_size)
+    fig.update_layout(
+        yaxis_range=[0.98 * min(data["PesoTotalMin"]), 1.02 * max(data["PesoTotalMin"])]
+    )
     st.plotly_chart(fig, use_container_width=True)
 
     st.title("Tenores de refuerzo")
@@ -72,13 +75,16 @@ def graficar_data(data, font_size=20):
         labels={
             "Longitud": "Múltiplo de Longitud (m)",
             "Calibres": "Calibres empleados",
-            "value": "Aumento en el tenor (kgf/m²)",
+            "value": "Tenor (kgf/m²)",
         },
         color="Calibres",
         barmode="group",
         height=500,
     )
     fig.update_layout(font_size=font_size)
+    fig.update_layout(
+        yaxis_range=[0.95 * min(data["TenorTotalMin"]), 1.05 * max(data["TenorTotalMin"])]
+    )
     st.plotly_chart(fig, use_container_width=True)
 
     st.title("Análisis de almacenamiento")
@@ -104,6 +110,9 @@ def graficar_data(data, font_size=20):
         height=500,
     )
     fig.update_layout(font_size=font_size)
+    fig.update_layout(
+        yaxis_range=[0.98 * min(data["NúmeroFiguras"]), 1.02 * max(data["NúmeroFiguras"])]
+    )
     st.plotly_chart(fig, use_container_width=True)
 
     st.title("Análisis de colocación")
@@ -146,28 +155,28 @@ def update_dataframe(data, area_proyecto):
 
     min_index = data["TenorTotal"].T.idxmin()
     min_index_name = data.iloc[min_index]["Análisis"]
-    data["TenorTotalMin"] = data["TenorTotal"] - min(data["TenorTotal"])
+    data["TenorTotalMin"] = data["TenorTotal"]
     data[f"Tenor Total ({min_index_name})"] = data["TenorTotalMin"] / max(
         data["TenorTotalMin"]
     )
 
     min_index = data["PesoTotal"].T.idxmin()
     min_index_name = data.iloc[min_index]["Análisis"]
-    data["PesoTotalMin"] = data["PesoTotal"] - min(data["PesoTotal"])
+    data["PesoTotalMin"] = data["PesoTotal"]
     data[f"Peso Total ({min_index_name})"] = data["PesoTotalMin"] / max(
         data["PesoTotalMin"]
     )
 
     min_index = data["NúmeroBarras"].T.idxmin()
     min_index_name = data.iloc[min_index]["Análisis"]
-    data["NúmeroBarrasMin"] = data["NúmeroBarras"] - min(data["NúmeroBarras"])
+    data["NúmeroBarrasMin"] = data["NúmeroBarras"]
     data[f"Número Barras ({min_index_name})"] = data["NúmeroBarrasMin"] / max(
         data["NúmeroBarrasMin"]
     )
 
     min_index = data["NúmeroFiguras"].T.idxmin()
     min_index_name = data.iloc[min_index]["Análisis"]
-    data["NúmeroFigurasMin"] = data["NúmeroFiguras"] - min(data["NúmeroFiguras"])
+    data["NúmeroFigurasMin"] = data["NúmeroFiguras"]
     data[f"Número Figuras ({min_index_name})"] = data["NúmeroFigurasMin"] / max(
         data["NúmeroFigurasMin"]
     )
