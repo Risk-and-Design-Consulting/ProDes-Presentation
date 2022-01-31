@@ -33,7 +33,7 @@ def graficar_data(data, font_size=20):
         color="Calibres",
         barmode="group",
         height=500,
-        text_auto = True,
+        text_auto = '.1f',
     )
     fig.update_layout(font_size=font_size)
     fig.update_layout(
