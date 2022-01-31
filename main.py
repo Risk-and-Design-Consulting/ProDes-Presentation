@@ -30,7 +30,6 @@ def graficar_data(data, font_size=20):
             "Calibres": "Calibres empleados",
             "value": f"Peso total (tonf)",
         },
-        color="Calibres",
         barmode="group",
         height=500,
         text_auto = '.1f',
