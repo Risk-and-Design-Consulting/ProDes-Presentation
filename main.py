@@ -5,7 +5,7 @@ import plotly.express as px
 import processor as pr
 
 st.set_page_config(page_title="Análisis de refuerzo", layout="wide")
-area_proyecto = 15531
+area_proyecto = 10000
 
 data = pd.read_excel("./defaults.xlsx")
 
