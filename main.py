@@ -136,28 +136,6 @@ def graficar_data(data, font_size=20):
     fig.update_traces(textposition="outside", cliponaxis=False)
     st.plotly_chart(fig, use_container_width=True)
     
-    
-    #st.title("Indicadores")
-    
-    #fig = px.bar(
-    #    data,
-    #    x="Análisis",
-    #    y=[
-    #        f"Peso Total ({min_index_name_peso})",
-    #        f"Número Figuras ({min_index_name_figuras})",
-    #        f"Número Barras ({min_index_name_barras})",
-    #    ],
-    #    labels={"value": "", "variable": "Indicador"},
-    #    barmode=view_mode,
-    #    height=700,
-    #)
-    #fig.update_xaxes(tickangle=270)
-    #fig.update_layout(font_size=font_size)
-    #fig.update_yaxes(title="", visible=True, showticklabels=False)
-    #fig.update_traces(hoverinfo="skip", hovertemplate=None)
-    #st.plotly_chart(fig, use_container_width=True)
-
-
 def update_dataframe(data, area_proyecto):
     data["PesoTotal"] = data["PesoRefLongitudinal"] + data["PesoEstribos"]
     data["TenorRefLongitudinal"] = data["PesoRefLongitudinal"] * 1000 / area_proyecto
